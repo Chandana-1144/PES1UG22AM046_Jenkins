@@ -3,17 +3,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'g++ hello.cpp -o hello'
+                sh '''
+                # Compile hello.cpp and create an executable named PES1UG22AM046-1
+                g++ hello.cpp -o PES1UG22AM046-1
+                '''
             }
         }
         stage('Test') {
             steps {
-                sh './hello'
+                sh '''
+                # Run the compiled executable
+                ./PES1UG22AM046-1
+                '''
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deployment Step Executed'
+                echo 'Deployment Step Executed Successfully'
             }
         }
     }
